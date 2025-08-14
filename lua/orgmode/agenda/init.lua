@@ -136,6 +136,9 @@ function Agenda:_build_custom_commands()
         todo_ignore_scheduled = opts.org_agenda_todo_ignore_scheduled,
         todo_ignore_deadlines = opts.org_agenda_todo_ignore_deadlines,
       },
+      todo_keywords = {
+        todo_keywords = opts.todo_keywords,
+      },
     }
 
     if not opts_by_type[opts.type] then

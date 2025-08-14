@@ -302,6 +302,25 @@ function OrgFile:get_unfinished_todo_entries()
   end, self:get_headlines())
 end
 
+---@param keywords string[]
+---@return OrgHeadline[]
+function OrgFile:get_headlines_by_todo_keywords(keywords)
+  if self:is_archive_file() then
+    return {}
+  end
+
+  return vim.tbl_filter(function(headline)
+    if headline:is_archived() then
+      return false
+    end
+    local todo = headline:get_todo()
+    if not todo then
+      return false
+    end
+    return vim.tbl_contains(keywords, todo)
+  end, self:get_headlines())
+end
+
 ---@param search OrgSearch
 ---@param todo_only boolean
 ---@return OrgHeadline[]

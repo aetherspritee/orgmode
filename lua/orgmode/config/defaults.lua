@@ -2,7 +2,7 @@
 local DefaultConfig = {
   org_agenda_files = '',
   org_default_notes_file = '',
-  org_todo_keywords = { 'TODO', '|', 'DONE' },
+  org_todo_keywords = { 'TODO', 'WAITING', 'PROJECT', '|', 'DONE', 'CANCELLED' },
   org_todo_repeat_to_state = nil,
   org_todo_keyword_faces = {},
   org_deadline_warning_days = 14,
@@ -25,7 +25,15 @@ local DefaultConfig = {
   org_agenda_skip_scheduled_if_done = false,
   org_agenda_skip_deadline_if_done = false,
   org_agenda_text_search_extra_files = {},
-  org_agenda_custom_commands = {},
+  org_agenda_custom_commands = {
+    w = {
+      description = 'Show WAITING tasks',
+      types = { {
+        type = 'todo_keywords',
+        todo_keywords = { 'WAITING' },
+      } },
+    },
+  },
   org_agenda_block_separator = '-',
   org_agenda_sorting_strategy = {
     agenda = { 'time-up', 'priority-down', 'category-keep' },
