@@ -158,6 +158,7 @@ local DefaultConfig = {
       org_priority_down = 'cir',
       org_todo = 'cit',
       org_todo_prev = 'ciT',
+      org_todo_done = 'ciF',
       org_toggle_checkbox = '<C-Space>',
       org_toggle_heading = '<prefix>*',
       org_open_at_point = '<prefix>o',
