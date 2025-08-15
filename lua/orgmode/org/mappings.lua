@@ -354,6 +354,10 @@ function OrgMappings:todo_prev_state()
   self:_todo_change_state('prev')
 end
 
+function OrgMappings:todo_done()
+  return self:_todo_change_state('done')
+end
+
 function OrgMappings:toggle_heading()
   local line_number = vim.fn.line('.')
   local line = vim.fn.getline(line_number)
@@ -1060,6 +1064,8 @@ function OrgMappings:_change_todo_state(direction, use_fast_access)
       next_state = todo_state:get_next()
     elseif direction == 'prev' then
       next_state = todo_state:get_prev()
+    elseif direction == 'done' then
+      next_state = todo_state:get_done_state()
     elseif direction == 'reset' then
       next_state = todo_state:get_reset_todo(headline)
     end

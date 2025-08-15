@@ -200,6 +200,10 @@ return {
       'org_mappings.todo_prev_state',
       { opts = { desc = 'org prev todo state', help_desc = 'Backward change TODO state of current headline' } }
     ),
+    org_todo_done = m.action(
+      'org_mappings.todo_done',
+      { opts = { desc = 'org done todo state', help_desc = 'Set TODO state of current headline to DONE' } }
+    ),
     org_priority = m.action(
       'org_mappings.set_priority',
       { opts = { desc = 'org cycle priority', help_desc = 'Change the priority of the current headline' } }

@@ -82,6 +82,15 @@ function TodoState:_get_direction(direction)
   return next_state
 end
 
+---@return OrgTodoKeyword | nil
+function TodoState:get_done_state()
+  for _, todo in ipairs(self.todos:all()) do
+    if todo.type == 'DONE' then
+      return todo
+    end
+  end
+end
+
 ---@param headline OrgHeadline|nil
 ---@return OrgTodoKeyword
 function TodoState:get_reset_todo(headline)
